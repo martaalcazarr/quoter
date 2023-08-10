@@ -1,9 +1,11 @@
+import AppQuote from "./components/AppQuote"
+
 
 function App() {
  
 
   return (
-   <h1>App</h1>
+   <AppQuote/>
   )
 }
 
