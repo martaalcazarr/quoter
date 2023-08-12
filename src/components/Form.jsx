@@ -1,4 +1,5 @@
-import { COMPANIES, YEARS } from "../constants"
+import { Fragment } from "react"
+import { COMPANIES, YEARS, PLANS } from "../constants"
 
 const Form = () => {
   return (
@@ -32,6 +33,29 @@ const Form = () => {
             ))}
         </select>
         </div>
+
+        <div className="my-5">
+            <label className="block mb-3 font-bold text-gray-400">Choose your preferred plan</label>
+           <div className="flex gap-3 items-center">
+                {PLANS.map(plan => (
+                    <Fragment key={plan.id}>
+                        <label>
+                            {plan.name}
+                        </label>
+                        <input 
+                            type="radio"
+                            name="plan"
+                            value={plan.id}
+                        />
+                    </Fragment>
+                ))}
+           </div>
+        </div>
+        <input 
+            type="submit"
+            className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer p-3 uppercase font-bold"
+            value="See Results"
+        />
     </form>
     </>
   )
