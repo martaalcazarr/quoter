@@ -1,3 +1,4 @@
+import { QuoteProvider } from "./context/QuoteProvider"
 import AppQuote from "./components/AppQuote"
 
 
@@ -5,7 +6,10 @@ function App() {
  
 
   return (
-   <AppQuote/>
+    <QuoteProvider>
+      <AppQuote/>
+    </QuoteProvider>
+  
   )
 }
 
