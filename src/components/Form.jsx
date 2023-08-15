@@ -1,14 +1,28 @@
 import { Fragment } from "react"
 import { COMPANIES, YEARS, PLANS } from "../constants"
 import useQuote from "../hooks/useQuoter"
+import Error from "./Error"
 
 const Form = () => {
 
-    const {data, handleChangeData} = useQuote()
+    const {data, handleChangeData, error, setError} = useQuote()
+
+    const handleSubmit = e =>{
+        e.preventDefault()
+
+        if(Object.values(data).includes('')){
+            setError('error, mandatory fields')
+            return
+        }
+        setError('')
+    }
+
   return (
     <>
-
-    <form>
+    {error && <Error />}
+    <form
+        onSubmit={handleSubmit}
+    >
         <div className="my-5">
             <label className="block mb-3 font-bold text-gray-400">Company</label>
             <select 
@@ -18,7 +32,7 @@ const Form = () => {
                 onChange={e => handleChangeData(e)}
                 value={data.company}
             >
-            <option value="0">--Select your company</option>
+            <option value="0">--Select your company--</option>
             {COMPANIES.map(company => (
                 <option
                 key={company.id}
