@@ -3,7 +3,7 @@ export function getDiferenceYear(year) {
 }
 
 export function calculateCompany(company){
-    let increment 
+    let increment;
 
     switch (company) {
         case "1":
@@ -18,5 +18,16 @@ export function calculateCompany(company){
         default:
             break;
     }
-    return increment
+    return increment;
+}
+
+export function calculatePlan(plan) {
+    return plan === "1" ? 1.2 : 1.5;
+}
+
+export function formatQuantity(quantity){
+    return quantity.toLocaleString('es-CL',{
+    style: "currency",
+    currency: "CLP"
+})
 }
