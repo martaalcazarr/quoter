@@ -5,7 +5,7 @@ import Error from "./Error"
 
 const Form = () => {
 
-    const {data, handleChangeData, error, setError} = useQuote()
+    const {data, handleChangeData, error, setError, QuotePlan} = useQuote()
 
     const handleSubmit = e =>{
         e.preventDefault()
@@ -15,6 +15,7 @@ const Form = () => {
             return
         }
         setError('')
+        QuotePlan()
     }
 
   return (
@@ -52,7 +53,7 @@ const Form = () => {
                 onChange={e => handleChangeData(e)}
                 value={data.year}
             >
-            <option value="0">--Select your year of birth</option>
+            <option value="0">--Select your year of birth--</option>
             {YEARS.map(year => (
                 <option
                 key={year}
