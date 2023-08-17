@@ -13,6 +13,7 @@ const QuoteProvider = ({children}) => {
     })
 
     const [error, setError] = useState('')
+    const [result, setResult] = useState(0)
 
     const handleChangeData = e => {
         setData({
@@ -39,7 +40,7 @@ const QuoteProvider = ({children}) => {
         result *= calculatePlan(data.plan)
       
         result = formatQuantity(result)
-        console.log(result)
+        setResult(result)
     }
 
     return(
@@ -49,7 +50,8 @@ const QuoteProvider = ({children}) => {
                 handleChangeData,
                 error,
                 setError,
-                QuotePlan
+                QuotePlan,
+                result
             }}
         >
             {children}

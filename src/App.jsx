@@ -3,13 +3,11 @@ import AppQuote from "./components/AppQuote"
 
 
 function App() {
- 
 
   return (
-    <QuoteProvider>
+  <QuoteProvider>
       <AppQuote/>
-    </QuoteProvider>
-  
+      </QuoteProvider>
   )
 }
 

@@ -1,6 +1,10 @@
 import Form from "./Form"
+import useQuote from "../hooks/useQuoter"
 
 export default function AppQuote() {
+
+  const {result} = useQuote()
+
   return (
     <>
     <header className='my-10'>
@@ -11,7 +15,8 @@ export default function AppQuote() {
 
     <main className='bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10'>
         <Form/>
-    </main>
+        {result}
+      </main>
     </>
   )
 }
