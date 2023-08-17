@@ -1,6 +1,11 @@
 import Form from "./Form"
+import useQuote from "../hooks/useQuoter"
+import Spinner from "./Spinner"
 
 export default function AppQuote() {
+
+  const {result, loading} = useQuote()
+
   return (
     <>
     <header className='my-10'>
@@ -11,7 +16,8 @@ export default function AppQuote() {
 
     <main className='bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10'>
         <Form/>
-    </main>
+        {loading ? <Spinner />: result}
+      </main>
     </>
   )
 }
