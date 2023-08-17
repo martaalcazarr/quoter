@@ -47,7 +47,7 @@ const QuoteProvider = ({children}) => {
         setTimeout(()=>{
             setResult(result)
             setLoading(false)
-        }, 3000)
+        }, 2000)
     }
 
     return(
