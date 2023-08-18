@@ -6,6 +6,7 @@ const Result = () => {
     const {company, year, plan} = data
 
     const [companyName] = COMPANIES.filter(c => c.id === Number(company))
+    const [planName] = PLANS.filter(p => p.id === Number(plan))
 
     if(result === 0) return null
   return (
@@ -14,6 +15,18 @@ const Result = () => {
         <p className="my-2">
             <span className="font-bold">Company: </span>
             {companyName.name}
+        </p>
+        <p className="my-2">
+            <span className="font-bold">Plan: </span>
+            {planName.name}
+        </p>
+        <p className="my-2">
+            <span className="font-bold">Your birthyear: </span>
+            {year}
+        </p>
+        <p className="my-2 text-2xl">
+            <span className="font-bold">Fixed monthly payment: </span>
+            {result}
         </p>
     </div>
   )
