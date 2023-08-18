@@ -1,12 +1,18 @@
 import useQuote from "../hooks/useQuoter"
+import { useCallback, useRef } from "react"
 import { COMPANIES, PLANS } from "../constants"
 
 const Result = () => {
     const {result, data} = useQuote()
     const {company, year, plan} = data
+    const yearRef =useRef(year)
 
-    const [companyName] = COMPANIES.filter(c => c.id === Number(company))
-    const [planName] = PLANS.filter(p => p.id === Number(plan))
+    const [companyName] = useCallback(
+        COMPANIES.filter(c => c.id === Number(company)),
+        [result])
+    const [planName] = useCallback(
+        PLANS.filter(p => p.id === Number(plan)),
+        [result])
 
     if(result === 0) return null
   return (
@@ -22,7 +28,7 @@ const Result = () => {
         </p>
         <p className="my-2">
             <span className="font-bold">Your birthyear: </span>
-            {year}
+            {yearRef.current}
         </p>
         <p className="my-2 text-2xl">
             <span className="font-bold">Fixed monthly payment: </span>
